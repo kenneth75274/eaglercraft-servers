@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Server Publish</title>
+</head>
+<body>
+    <h1>Publish Your Server</h1>
+    <form id="publishForm">
+        <label for="serverName">Server Name:</label><br>
+        <input type="text" id="serverName" name="serverName" required><br>
+        <label for="serverIP">Server IP:</label><br>
+        <input type="text" id="serverIP" name="serverIP" required><br>
+        <label for="serverPort">Server Port:</label><br>
+        <input type="number" id="serverPort" name="serverPort" required><br><br>
+        <input type="submit" value="Publish">
+    </form>
+    <script>
+        document.getElementById('publishForm').onsubmit = function(event) {
+            event.preventDefault();
+            const serverName = document.getElementById('serverName').value;
+            const serverIP = document.getElementById('serverIP').value;
+            const serverPort = document.getElementById('serverPort').value;
+            alert(`Server Published: \nName: ${serverName} \nIP: ${serverIP} \nPort: ${serverPort}`);
+        };
+    </script>
+</body>
+</html>
