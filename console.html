@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Console</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        #console {
+            background-color: black;
+            color: lime;
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        #status {
+            color: green;
+            margin-bottom: 10px;
+        }
+        #commandInput {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Server Console Interface</h1>
+    <div id="console">
+        <p>Welcome to the server console. Type your commands below.</p>
+    </div>
+    <div id="status">Status: Online</div>
+    <input type="text" id="commandInput" placeholder="Enter command..." />
+
+    <script>
+        const commandInput = document.getElementById('commandInput');
+        const consoleDiv = document.getElementById('console');
+
+        commandInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                const command = commandInput.value;
+                consoleDiv.innerHTML += `<p>> ${command}</p>`;
+                commandInput.value = '';
+                // Here you can add the logic to execute the command
+                consoleDiv.scrollTop = consoleDiv.scrollHeight; // Scroll to the bottom
+            }
+        });
+    </script>
+</body>
+</html>
