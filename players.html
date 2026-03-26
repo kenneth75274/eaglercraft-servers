@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        header { margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        button { padding: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Player Management Interface</h1>
+        <button id="add-player">Add Player</button>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th>Player ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="player-list">
+            <!-- Player rows will be generated here -->
+        </tbody>
+    </table>
+    <script>
+        const players = [];
+
+        function renderPlayers() {
+            const playerList = document.getElementById('player-list');
+            playerList.innerHTML = '';
+            players.forEach((player, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${player.id}</td>
+                    <td>${player.name}</td>
+                    <td>${player.role}</td>
+                    <td>${player.status}</td>
+                    <td><button onclick="removePlayer(${index})">Remove</button></td>
+                `;
+                playerList.appendChild(row);
+            });
+        }
+
+        function addPlayer() {
+            const playerName = prompt('Enter player name:');
+            const playerRole = prompt('Enter player role:');
+            if (playerName && playerRole) {
+                const newPlayer = { id: players.length + 1, name: playerName, role: playerRole, status: 'Active' };
+                players.push(newPlayer);
+                renderPlayers();
+            }
+        }
+
+        function removePlayer(index) {
+            players.splice(index, 1);
+            renderPlayers();
+        }
+
+        document.getElementById('add-player').addEventListener('click', addPlayer);
+
+        renderPlayers();
+    </script>
+</body>
+</html>
