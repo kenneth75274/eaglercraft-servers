@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Management Console</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Server Management Console</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Server Status</h2>
+            <div id="server-status">Online</div>
+        </section>
+        <section>
+            <h2>Controls</h2>
+            <button id="start-server">Start Server</button>
+            <button id="stop-server">Stop Server</button>
+        </section>
+        <section>
+            <h2>Logs</h2>
+            <textarea id="logs" rows="10" cols="50" readonly></textarea>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
