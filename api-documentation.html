@@ -1,0 +1,40 @@
+# API Documentation
+
+## Overview
+This document provides an overview of the API functionalities available in the Eaglercraft Servers project.
+
+## Endpoints
+
+### 1. Get Server Status
+- **Endpoint**: `/api/status`
+- **Method**: `GET`
+- **Description**: Retrieves the current status of the server.
+- **Response**: 
+  - `200 OK`: Returns server status information.
+
+### 2. Get Player List
+- **Endpoint**: `/api/players`
+- **Method**: `GET`
+- **Description**: Retrieves a list of currently connected players.
+- **Response**: 
+  - `200 OK`: Returns a list of players.
+
+### 3. Send Message
+- **Endpoint**: `/api/message`
+- **Method**: `POST`
+- **Description**: Sends a message to all players on the server.
+- **Request Body**:
+  - `message`: The message to send.
+- **Response**: 
+  - `200 OK`: Confirms message delivery.
+
+## Authentication
+API requests may require authentication. Ensure you have the correct API key.
+
+## Error Handling
+Common error responses include:
+- `404 Not Found`: Endpoint does not exist.
+- `500 Internal Server Error`: Server encountered an error.
+
+## Contact
+For further inquiries, please contact support@eaglercraft.io
